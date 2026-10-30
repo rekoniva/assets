@@ -15,7 +15,7 @@ Open `index.html` in a browser; no build step is needed.
   - Pages from lakehouston.org were pulled on 2026-10-30.
   - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.
 - **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
-- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header. The footer has a slot for their Facebook cover banner (`assets/img/fb-cover.jpg`).
+- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header. The footer opens with their Facebook cover banner (`assets/img/fb-cover.jpg`), cropped around the logo on phones.
 - **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
 - **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the tap-to-play video, the deep links into collapsible sections, and the directory filter.
 

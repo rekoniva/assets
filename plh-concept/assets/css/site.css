@@ -465,7 +465,7 @@ p { margin: 0 0 1em; }
 .footer-banner { margin-bottom: 40px; background: #fff; }
 .footer-banner img { width: 100%; height: auto; display: block; }
 @media (max-width: 767px) {
-  .footer-banner img { height: 300px; object-fit: cover; object-position: 88% 50%; }
+  .footer-banner img { height: 300px; object-fit: cover; object-position: 90% 50%; }
 }
 
 /* ---------- Contact form ---------- */
