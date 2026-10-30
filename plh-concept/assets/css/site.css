@@ -467,3 +467,18 @@ p { margin: 0 0 1em; }
 @media (max-width: 767px) {
   .footer-banner img { height: 300px; object-fit: cover; object-position: 88% 50%; }
 }
+
+/* ---------- Contact form ---------- */
+.contact-form { display: grid; gap: 16px; max-width: 560px; }
+.field { display: grid; gap: 6px; }
+.field label { font: 700 .92rem/1.2 var(--head); color: var(--navy); }
+.field label [aria-hidden] { color: var(--red); }
+.field .optional { font: 400 .85rem var(--body); color: var(--muted); }
+.field input, .field textarea {
+  font: inherit; color: var(--ink); background: var(--white);
+  border: 1px solid #B8C2D3; border-radius: 8px; padding: 10px 14px; min-height: 44px; width: 100%;
+}
+.field textarea { resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--red); outline-offset: 1px; border-color: var(--navy); }
+.contact-form .btn { justify-self: start; min-width: 140px; }
+.form-success { background: #EAF6EE; border: 1px solid #9CCFAE; color: #1E5631; border-radius: 8px; padding: 12px 14px; font-weight: 700; }

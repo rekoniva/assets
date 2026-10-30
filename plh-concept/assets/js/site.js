@@ -71,6 +71,10 @@
     });
   });
 
+  // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
+  var ok = document.querySelector('.form-success');
+  if (ok && /[?&]sent=1/.test(location.search)) ok.hidden = false;
+
   // Video: poster + play button; plays only on tap, with native controls.
   Array.prototype.forEach.call(document.querySelectorAll('.video-frame'), function (frame) {
     var video = frame.querySelector('video');

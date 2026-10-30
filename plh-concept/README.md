@@ -15,7 +15,7 @@ Open `index.html` in a browser; no build step is needed.
   - Pages from lakehouston.org were pulled on 2026-10-30.
   - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.
 - **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
-- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header.
+- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header. The footer has a slot for their Facebook cover banner (`assets/img/fb-cover.jpg`).
 - **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
 - **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the tap-to-play video, the deep links into collapsible sections, and the directory filter.
 
@@ -29,6 +29,8 @@ Open `index.html` in a browser; no build step is needed.
 | Community | Volunteer, Ambassadors, Advocacy, Business Resources, Publications & Communication |
 | Development | Lake Houston Area Profile, Incentives, Education, Industries, Properties (their map tool embedded) |
 | Contact | single page, no submenu |
+
+**Contact form:** a working Netlify Form (Name, Email, Phone, Message). Submissions land in the Netlify dashboard under Forms, not with the chamber. Their saved Contact Us page didn't include the form fields, so these are standard ones.
 
 These still link out on purpose:
 - **Login and Join** (their live member system)
