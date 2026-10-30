@@ -33,6 +33,11 @@
     });
   });
 
+  // Tapping a menu link closes the menu, so same-page links (e.g. membership.html#sponsorship) visibly land.
+  Array.prototype.forEach.call(document.querySelectorAll('#site-menu a'), function (link) {
+    link.addEventListener('click', function () { setNav(false); closeSubs(); });
+  });
+
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     var openBtn = subToggles.filter(function (b) { return b.getAttribute('aria-expanded') === 'true'; })[0];
