@@ -5,62 +5,43 @@ Open `index.html` in a browser; no build step is needed.
 
 ## What's here
 
-- **26 pages on one template** (same sticky header, hero, cards and footer):
-  - Hubs: `index`, `about`, `membership`, `events`, `community`, `development`, `contact`
-  - One page per menu item, with these merges:
-    - `membership.html` holds the why-join copy, Membership Levels (one collapsible row per level, price on the right; the duplicate price tiles were dropped), a Testimonials carousel and both sponsorship links.
-    - `networking-programs.html` holds Bizcom, Business & Bacon and Chamber on Tap.
-    - Luncheons is covered by `signature-events.html#luncheons`.
-- **Site search:** a search icon in the header on every page, plus a search box and four quick links (Member Directory, Event Calendar, Membership Levels, Contact) under the homepage hero. `search.html` searches pages, page sections, events, people and all directory businesses from a prebuilt index (`assets/js/search-index.js`). Business results open the directory already filtered (`member-directory.html?q=`).
-- **Section navigation:** every page in a section ends with the same "More in <Section>" tiles (hub pages say "Explore <Section>").
-- **Long content folded:** layout only; the words are unchanged.
-  - Incentives: Local and State lists, one row per program.
-  - Advocacy: Objectives, Purpose, Goals and the disaster-relief list are rows.
-  - Area Profile: the stats are tiles.
-  - Publications: the Weekly Email dates collapse.
-  - Networking Programs: each program is a row.
-  - Board and Ambassadors: the first 6 people show, the rest sit behind "Show more".
-  - Event calendar: descriptions fold to 3 lines.
-  - Signature Events: a carousel.
-  - Leadership Lake Houston: the past classes are one list, newest first.
-- **Copy:** kept word for word. The markup was rebuilt; the text wasn't edited.
-  - Pages from lakehouston.org were pulled on 2026-10-30.
-  - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.
-- **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
-- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header. On the homepage only, the footer opens with their Facebook cover banner (`assets/img/fb-cover.jpg`), cropped around the logo on phones.
-- **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
-- **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the homepage hero video (muted loop on tablet/desktop with a pause button; phones and reduced-motion users get a still frame), the deep links into collapsible sections, the directory search, and the Education photo carousels (scroll-snap, swipe on phones, arrow buttons with a counter).
+- **24 pages on one template** (same sticky header, hero, cards and footer).
+- **Menu:** five header items plus Search, Login and a red Join. On phones, Login moves into the menu panel.
+  - About: Who We Are, Staff, Board of Directors, Elite Investors
+  - Membership: Membership Levels, Sponsorship, Member Directory, Lake Houston Deals
+  - Events: Event Calendar, Signature Events, Networking Programs, Recorded Events
+  - Community: Ambassadors, Leadership Lake Houston, Advocacy, Business Resources, Publications
+  - Contact
+  - Economic Development is footer-only: Lake Houston Area Profile, Incentives, Education, and Properties (their map tool).
+- **Homepage:** photo hero (Join + "See upcoming events"), a short Heart of Opportunity with "Get to Know Us", the next 3 events (one-line descriptions), their video behind a poster (plays only on tap, with controls), and the Elite Investors logo strip.
+- **No repeats:** core values live on About only. Membership benefits copy lives on Membership only. Join appears twice on the homepage (header and hero).
+- **Layout:**
+  - One spacing scale: 40px phone, 64px desktop. One content width: 1100px, with a 720px text column.
+  - Card grids are 1/2/3 across, with a short last row centered.
+  - Footer links are 16px with 44px tap targets on phones.
+- **Site search:** header icon on every page. It searches pages, page sections, events, people and all 473 directory businesses. Business results open the directory already filtered.
+- **Copy:** kept word for word. Pages from lakehouston.org were pulled on 2026-10-30. The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory) were rebuilt from copies saved by hand that day; that site blocks automated access.
+- **Edits made on request:**
+  - "……" became "...".
+  - `utm_source=chatgpt.com` was removed from links.
+  - Every phone number uses the (281) 446-2128 format, and every phone link has a spoken "Call …" label.
+- **Colors and logo:** navy `#0D1E58` and red `#B62A3F` (calls to action only), taken from the official logo. `assets/img/plh-logo.svg` is the supplied vector file, byte for byte.
+- **Images and video:** hotlinked from their CDN. The exceptions:
+  - The Elite Investors logos are local copies in `assets/img/logos/`, with only their white margins trimmed.
+  - `assets/img/video-poster.jpg` is a frame from their video.
+- **Contact form:** a working Netlify Form. Submissions land in the Netlify dashboard under Forms, not with the chamber.
 
-## Menu map
+## Retired pages (no usable real content)
 
-| Menu | Pages |
-|---|---|
-| About | Who We Are, Partnership Staff, Board of Directors, Our Elite Investors |
-| Membership | Membership Levels, Sponsorship Opportunities, Member Directory, Lake Houston Deals |
-| Events | Event Calendar, Signature Events, Networking Programs, Leadership Lake Houston, Recorded Events (their YouTube uploads embedded) |
-| Community | Volunteer, Ambassadors, Advocacy, Business Resources, Publications & Communication |
-| Development | Lake Houston Area Profile, Incentives, Education, Industries, Properties (their map tool embedded) |
-| Contact | single page, no submenu |
+- **Volunteer:** lakehouston.org/volunteer returns a 404.
+- **Industries:** only five image tiles linking to a private OneDrive.
+- **Properties:** the page was just their third-party map tool, so it's now a footer link straight to that tool.
+- **FAQ, Privacy policy, Terms:** dead `#` links on the live site, so they're left out of the footer.
 
-**Contact form:** a working Netlify Form (Name, Email, Phone, Message). Submissions land in the Netlify dashboard under Forms, not with the chamber. Their saved Contact Us page didn't include the form fields, so these are standard ones.
+## Snapshots
 
-These still link out on purpose:
-- **Login and Join** (their live member system)
-- **The sponsorship PDF and the Canva deck**
-- **Lake Houston Jobs**
-- **The full member directory search**
-- **Event detail pages** for the two events their homepage links to
-
-## Snapshots and placeholders
-
-- **Event calendar** is a snapshot of the saved list view, so it won't update on its own.
-  - Two entries are left out because the saved page didn't include their dates: an untitled Business & Bacon session and the Elected Officials Breakfast Reception.
-- **Member Directory:** 473 businesses (508 listing rows) from a full scrape of their directory on 2026-10-30, so it's a snapshot too.
-  - The 106 original categories are grouped into 34 consolidated ones, following the category proposal. Each card still shows its original categories, and search matches business names and both sets of categories.
-  - One fix to the scrape: Chicken Salad Chick's phone number was in the Address column and was moved to Phone.
-  - The scrape had no websites and only 3 addresses, so cards show name, category and phone.
-- **Volunteer:** lakehouston.org/volunteer returns a 404, so there's no copy to bring over.
-- **FAQ, Privacy policy, Terms and conditions:** these are dead `#` links on the live site.
+- **Event calendar** is a snapshot of the saved list view. Two entries are left out because their dates weren't captured.
+- **Member Directory:** 473 businesses (508 rows) from a full scrape on 2026-10-30, grouped into 34 consolidated categories (original categories shown on each card).
 
 ## Things found on the live site (left verbatim, worth fixing)
 

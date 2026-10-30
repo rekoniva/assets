@@ -653,3 +653,110 @@ p { margin: 0 0 1em; }
 .event .text-link { margin-top: 2px; }
 .fold-toggle { margin-top: -4px; }
 .prose .card h3, .prose .person h3, .prose .biz h3 { margin-top: 0; }
+
+/* =====================================================================
+   v2 layout system: one spacing scale, one content width, even grids
+   ===================================================================== */
+:root { --space: 40px; --text-col: 720px; }
+@media (min-width: 768px) { :root { --space: 64px; } }
+.container { max-width: 1100px; }
+.container.narrow > *, .text-col { max-width: var(--text-col); }
+.text-col { margin: 0; }
+.prose > p, .prose > ul, .prose > ol, .prose > h2, .prose > h3, .prose > h4, .prose > .accordion, .prose > .lead,
+.prose > .fold, .prose > figure.photo, .prose > .program, .prose > .stat-grid { max-width: var(--text-col); }
+
+/* sections: same padding everywhere; stacked sections don't double up */
+.section, .section-tight { padding: var(--space) 0; }
+.section + .section:not(.section-soft):not(.section-investors), .section-tight + .section-tight:not(.section-soft) { padding-top: 0; }
+.hub-group { padding-top: 0; }
+.hero-page { padding: 28px 0 32px; }
+@media (min-width: 768px) { .hero-page { padding: 44px 0 48px; } }
+.subnav { margin-top: var(--space); padding-top: 0; border-top: 0; }
+.hub-group .subnav { margin-top: 0; }
+.section-foot { margin: 20px 0 0; }
+h2 { margin-bottom: .45em; }
+
+/* even card grids: 1 / 2 / 3 per row, last row centered */
+.cards, .section-links, .people, .details-body .cards {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; grid-template-columns: none;
+}
+.cards > *, .section-links > *, .people > * { flex: 0 1 100%; min-width: 0; }
+@media (min-width: 640px) {
+  .cards > *, .section-links > *, .people > * { flex-basis: calc((100% - 16px) / 2); }
+}
+@media (min-width: 1024px) {
+  .cards > *, .section-links > *, .people > * { flex-basis: calc((100% - 32px) / 3); }
+}
+.cards:has(> .card:only-child) > * { flex-basis: 100%; max-width: 720px; }
+
+/* Elite Investors: wide two-up cards, logo on top, text below */
+.investors .cards > * { flex-basis: 100%; }
+@media (min-width: 768px) { .investors .cards > * { flex-basis: calc((100% - 16px) / 2); } }
+.investors .card:has(> .card-logo) { flex-direction: column; align-items: stretch; }
+.investors .card-img.card-logo { width: 100%; height: 120px; aspect-ratio: auto; padding: 18px; border-right: 0; border-bottom: 1px solid var(--line); }
+.investors .card:has(> .card-logo) .card-body { padding: 16px 18px 20px; }
+.investors .card:has(> .card-logo) .card-body p { font-size: .98rem; }
+.investors .accordion, .investors .details-body { max-width: none; }
+
+/* ---------- header: lighter on phones (Login moves into the menu panel) ---------- */
+.menu-login { display: none; }
+@media (max-width: 1023px) {
+  .login-link { display: none; }
+  .menu-login { display: grid; }
+  .header-actions { gap: 6px; }
+}
+
+/* ---------- homepage ---------- */
+.hero-home { padding: 44px 0 52px; }
+@media (min-width: 768px) { .hero-home { padding: 96px 0 104px; } }
+.hero-home::before { background: linear-gradient(180deg, rgba(13, 30, 88, .74) 0%, rgba(8, 19, 58, .86) 100%); }
+@media (min-width: 768px) {
+  .hero-home::before { background: linear-gradient(90deg, rgba(8, 19, 58, .88) 0%, rgba(13, 30, 88, .66) 55%, rgba(13, 30, 88, .35) 100%); }
+}
+.hero-home .tagline { font-size: clamp(1.9rem, 7.4vw, 3.4rem); }
+.hero-home .mission { font-size: 1.02rem; margin-bottom: 22px; }
+.eyebrow.center { text-align: center; }
+.home-events { grid-template-columns: 1fr; }
+@media (min-width: 900px) { .home-events { grid-template-columns: repeat(3, 1fr); } }
+.home-events .event-desc { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0; }
+
+.video-frame { position: relative; max-width: 960px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; background: var(--navy-deep); aspect-ratio: 16 / 9; box-shadow: var(--shadow); }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; }
+.video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border: 0; padding: 0; cursor: pointer; background: rgba(8, 19, 58, .25); color: var(--white); }
+.video-play[hidden], .video-frame.is-playing .video-play { display: none; }
+.video-play:hover { background: rgba(8, 19, 58, .4); }
+.play-dot { width: 88px; height: 88px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(0, 0, 0, .3); transition: transform .15s; }
+.video-play:hover .play-dot { transform: scale(1.06); }
+.play-dot svg { width: 34px; height: 34px; margin-left: 5px; }
+
+.section-investors { border-top: 0; }
+.logo-strip { flex-wrap: nowrap; justify-content: space-evenly; gap: 20px; overflow-x: auto; padding: 4px 0; }
+.logo-strip li { flex: 0 0 auto; }
+.logo-strip img { height: 52px; width: auto; max-width: none; }
+@media (min-width: 768px) { .logo-strip img { height: 72px; } }
+
+/* ---------- events page: one clean list per month ---------- */
+.event-list { grid-template-columns: 1fr !important; gap: 12px; }
+.month-head { margin: 28px 0 12px; }
+
+/* ---------- footer: bigger links, roomier, 44px tap targets on phones ---------- */
+.site-footer { padding: 48px 0 28px; font-size: 1rem; }
+.footer-grid { gap: 28px 32px; }
+@media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+.site-footer h2 { font-size: 1rem; margin-bottom: 10px; }
+.site-footer h2 a { color: var(--white); }
+.footer-links a, .footer-links span { font-size: 1rem; line-height: 1.5; padding: 6px 0; }
+.footer-contact li { padding: 4px 0; }
+@media (max-width: 767px) {
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
+  .social a { width: 44px; height: 44px; }
+}
+.footer-bottom { justify-content: space-between; font-size: .9rem; }
+.footer-note { margin-left: 0 !important; }
+#upcoming-events .home-events .event-desc { -webkit-line-clamp: 1; }
+.container.text-col { max-width: 1100px; margin: 0 auto; }
+.container.text-col > * { max-width: var(--text-col); }
+.investors .card-img.card-logo { object-fit: contain; }
+.card-body:empty { display: none; }
+.investors .card:has(> .card-body:empty) .card-img.card-logo { border-bottom: 0; }
+@media (max-width: 767px) { .site-footer h2 a { display: inline-flex; align-items: center; min-height: 44px; } }
