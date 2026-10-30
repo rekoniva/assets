@@ -64,6 +64,34 @@
   }
   window.addEventListener('hashchange', openTarget);
   openTarget();
+  // Same-page links to a collapsible section open it, even when the hash is already set.
+  document.addEventListener('click', function (ev) {
+    var link = ev.target.closest('a[href^="#"]');
+    var el = link && document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  });
+
+  // Audit page: expand / collapse every section.
+  var accButtons = document.querySelector('.acc-buttons');
+  if (accButtons) {
+    var accs = Array.prototype.slice.call(document.querySelectorAll('.audit-acc'));
+    accButtons.hidden = false;
+    accButtons.addEventListener('click', function (ev) {
+      var b = ev.target.closest('[data-acc]');
+      if (b) accs.forEach(function (d) { d.open = b.getAttribute('data-acc') === 'open'; });
+    });
+  }
+
+  // Printing shows every collapsible section, then puts them back.
+  var printState = [];
+  window.addEventListener('beforeprint', function () {
+    printState = Array.prototype.map.call(document.querySelectorAll('main details'), function (d) {
+      var was = d.open; d.open = true; return [d, was];
+    });
+  });
+  window.addEventListener('afterprint', function () {
+    printState.forEach(function (p) { p[0].open = p[1]; });
+  });
 
   // Directory: keyword (business name or category) + consolidated category; matching groups open, the rest hide.
   var dform = document.querySelector('[data-dir-search]');

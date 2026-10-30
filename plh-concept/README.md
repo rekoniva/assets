@@ -29,7 +29,7 @@ Open `index.html` in a browser; no build step is needed.
 - **Images and video:** hotlinked from their CDN. The exceptions:
   - The Elite Investors logos are local copies in `assets/img/logos/`, with only their white margins trimmed.
   - `assets/img/video-poster.jpg` is a frame from their video.
-- **Website Audit & Redesign:** `changes.html` (footer link "What changed") is a one-page summary to share with the chamber. It quotes the live-site typos as found, so it skips the copy fixes and is left out of site search.
+- **Website Audit & Redesign:** `changes.html` (footer link "Website Audit & Redesign") is the summary to share with the chamber. It has a Top 5 box, then five sections that start closed: Redesign changes, Website fixes, Facebook audit, Google Business Profile audit, and Social strategy. Expand all, Collapse all and a jump menu sit at the top, and printing opens every section. Facebook and Google findings are as supplied by Vee (checked Oct 30, 2026). The page quotes live-site typos as found, so it skips the copy fixes and is left out of site search.
 - **Contact form:** a working Netlify Form. Submissions land in the Netlify dashboard under Forms, not with the chamber.
 
 ## Retired pages (no usable real content)
