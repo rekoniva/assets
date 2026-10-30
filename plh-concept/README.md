@@ -43,7 +43,10 @@ These still link out on purpose:
 
 - **Event calendar** is a snapshot of the saved list view, so it won't update on its own.
   - Two entries are left out because the saved page didn't include their dates: an untitled Business & Bacon session and the Elected Officials Breakfast Reception.
-- **Member Directory:** shows the category list only. Listings inside each category weren't captured (marked `[PLACEHOLDER]`).
+- **Member Directory:** 473 businesses (508 listing rows) from a full scrape of their directory on 2026-10-30, so it's a snapshot too.
+  - The 106 original categories are grouped into 34 consolidated ones, following the category proposal. Each card still shows its original categories, and search matches business names and both sets of categories.
+  - One fix to the scrape: Chicken Salad Chick's phone number was in the Address column and was moved to Phone.
+  - The scrape had no websites and only 3 addresses, so cards show name, category and phone.
 - **Volunteer:** lakehouston.org/volunteer returns a 404, so there's no copy to bring over.
 - **FAQ, Privacy policy, Terms and conditions:** these are dead `#` links on the live site.
 

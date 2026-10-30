@@ -60,33 +60,34 @@
   window.addEventListener('hashchange', openTarget);
   openTarget();
 
-  // Directory: keyword + category search across all letter groups; matching letters open, the rest hide.
+  // Directory: keyword (business name or category) + consolidated category; matching groups open, the rest hide.
   var dform = document.querySelector('[data-dir-search]');
   if (dform) {
     var dq = dform.querySelector('#dir-q');
     var dcat = dform.querySelector('#dir-cat');
     var groups = Array.prototype.slice.call(document.querySelectorAll('.dir-group'));
     var status = document.getElementById('dir-status');
+    var idle = status.textContent;
     var run = function () {
       var q = dq.value.trim().toLowerCase();
       var cat = dcat.value;
       var active = q !== '' || cat !== '';
-      var total = 0;
+      var names = {};
       groups.forEach(function (g) {
+        var inCat = cat === '' || g.getAttribute('data-group') === cat;
         var hits = 0;
-        Array.prototype.forEach.call(g.querySelectorAll('li'), function (li) {
-          var t = li.textContent;
-          var match = (q === '' || t.toLowerCase().indexOf(q) !== -1) && (cat === '' || t === cat);
-          li.hidden = !match;
-          if (match) hits++;
+        Array.prototype.forEach.call(g.querySelectorAll('.biz'), function (b) {
+          var match = inCat && (q === '' || b.getAttribute('data-search').indexOf(q) !== -1);
+          b.hidden = !match;
+          if (match) { hits++; names[b.querySelector('h3').textContent] = 1; }
         });
-        total += hits;
         g.hidden = active && hits === 0;
         g.open = active && hits > 0;
       });
-      status.textContent = !active ? '' :
-        total === 0 ? 'No results. Try another word or category.' :
-        total + (total === 1 ? ' result.' : ' results.');
+      var total = Object.keys(names).length;
+      status.textContent = !active ? idle :
+        total === 0 ? 'No businesses match. Try another word or category.' :
+        total + (total === 1 ? ' business matches.' : ' businesses match.');
     };
     dq.addEventListener('input', run);
     dcat.addEventListener('change', run);
