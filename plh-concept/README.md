@@ -5,9 +5,10 @@ Open `index.html` in a browser; no build step is needed.
 
 ## What's here
 
-- **23 pages on one template** (same sticky header, hero, cards and footer):
-  - Hubs: `index`, `about`, `membership`, `events`, `community`, `contact`
+- **22 pages on one template** (same sticky header, hero, cards and footer):
+  - Hubs: `index`, `about`, `membership`, `events`, `community`, `development`, `contact`
   - One subpage per submenu item that has content on lakehouston.org
+  - Membership Levels, Testimonials and both sponsorship links are merged into `membership.html`
 - **Copy:** pulled from lakehouston.org on 2026-10-30 and kept word for word. The markup was rebuilt; the text wasn't edited.
 - **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
 - **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header and footer.
@@ -19,9 +20,10 @@ Open `index.html` in a browser; no build step is needed.
 | Menu | Pages |
 |---|---|
 | About | Who We Are, Our Elite Investors, Partnership Staff ↗, Board of Directors ↗ |
-| Membership | Membership Levels, Member Testimonials, Member Directory ↗, Lake Houston Deals ↗, Partnership Opportunities 2027 ↗, Sponsorship Opportunities ↗ |
+| Membership | Membership Levels (levels and testimonials on one page), Sponsorship Opportunities (2027 PDF and Canva deck), Member Directory ↗, Lake Houston Deals ↗ |
 | Events | Upcoming Events, Full Calendar ↗, Signature Events, Luncheons, Bizcom, Business & Bacon, Chamber on Tap, Leadership Lake Houston, Recorded Events ↗ |
-| Community | **Community Engagement:** Volunteer, Ambassadors ↗, Advocacy, Business Resources, Publications & Communication. **Economic Development:** Lake Houston Area Profile, Incentives, Education, Industries, Properties ↗ |
+| Community | Volunteer, Ambassadors ↗, Advocacy, Business Resources, Publications & Communication |
+| Development | Lake Houston Area Profile, Incentives, Education, Industries, Properties ↗ |
 | Contact | Contact Us, Partnership Staff ↗, Board of Directors ↗ |
 
 ↗ = links out to their live system (members.lakehouston.org, etc.). Login and Join links live in the sticky header.
