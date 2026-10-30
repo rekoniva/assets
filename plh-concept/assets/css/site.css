@@ -408,3 +408,7 @@ p { margin: 0 0 1em; }
 .cards:has(> .card:only-child) { grid-template-columns: 1fr; max-width: 760px; }
 .program + .program { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
 .prose > figure.photo, .program > figure.photo { max-width: 560px; }
+.embed-frame { position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 20px; background: var(--soft); }
+.embed-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (min-width: 768px) { .embed-frame { aspect-ratio: 16 / 10; } }
+@media (min-width: 1024px) { .menu-item.no-sub .menu-link { padding-right: 10px; } }
