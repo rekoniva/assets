@@ -774,3 +774,24 @@ h2 { margin-bottom: .45em; }
 .community-intro + .hub-group { padding-top: 0; }
 .subnav h2 { margin-bottom: 20px; }
 .nowrap { white-space: nowrap; }
+
+/* What changed page */
+.changes h2 { margin-top: var(--space); }
+.changes h2:first-of-type { margin-top: 32px; }
+.changes h3 { margin-top: 28px; }
+.changes .url { overflow-wrap: anywhere; }
+.changes mark { background: #FCE8EC; color: var(--red-dark, #952234); padding: 0; border-radius: 2px; }
+.menu-compare { display: grid; gap: 20px; margin: 16px 0 24px; }
+@media (min-width: 700px) { .menu-compare { grid-template-columns: 1fr 1fr; } }
+.menu-compare > div { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: #fff; }
+.map-label { font-family: Montserrat, sans-serif; font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--red, #B62A3F); margin: 0 0 8px; }
+.map-label:not(:first-child) { margin-top: 18px; }
+.menu-map { list-style: none; margin: 0; padding: 0; }
+.menu-map > li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.menu-map > li:last-child { border-bottom: 0; }
+.menu-map ul { list-style: none; margin: 2px 0 0; padding: 0 0 0 14px; font-size: .92rem; color: var(--muted); }
+.map-note { font-size: .9rem; color: var(--muted); margin: 10px 0 0; }
+.fix-list > li { margin-bottom: 12px; }
+.signoff { margin-top: var(--space); padding-top: 20px; border-top: 1px solid var(--line); font-weight: 700; color: var(--navy, #0D1E58); }
+.footer-note a { color: inherit; text-decoration: underline; }
+@media (max-width: 767px) { .footer-note a { display: inline-flex; align-items: center; min-height: 44px; } }
