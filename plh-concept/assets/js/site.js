@@ -112,7 +112,12 @@
       count.textContent = (i + 1) + ' / ' + n;
       prev.disabled = i <= 0;
       next.disabled = i >= n - 1;
+      // Slides of different heights (testimonials): size the track to the one showing.
+      if (car.classList.contains('auto-height') && track.children[i]) {
+        track.style.height = track.children[i].offsetHeight + 'px';
+      }
     };
+    window.addEventListener('resize', function () { update(); });
     var go = function (d) { track.scrollTo({ left: (index() + d) * track.clientWidth }); };
     prev.addEventListener('click', function () { go(-1); });
     next.addEventListener('click', function () { go(1); });

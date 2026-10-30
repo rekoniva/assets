@@ -8,9 +8,10 @@ Open `index.html` in a browser; no build step is needed.
 - **26 pages on one template** (same sticky header, hero, cards and footer):
   - Hubs: `index`, `about`, `membership`, `events`, `community`, `development`, `contact`
   - One page per menu item, with these merges:
-    - `membership.html` holds Membership Levels (collapsible, one section per level), Testimonials and both sponsorship links.
+    - `membership.html` holds the why-join copy, Membership Levels (one collapsible row per level, price on the right; the duplicate price tiles were dropped), a Testimonials carousel and both sponsorship links.
     - `networking-programs.html` holds Bizcom, Business & Bacon and Chamber on Tap.
     - Luncheons is covered by `signature-events.html#luncheons`.
+- **Section navigation:** every page in a section ends with the same "More in <Section>" tiles (hub pages say "Explore <Section>").
 - **Copy:** kept word for word. The markup was rebuilt; the text wasn't edited.
   - Pages from lakehouston.org were pulled on 2026-10-30.
   - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.
