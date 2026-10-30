@@ -413,3 +413,6 @@ p { margin: 0 0 1em; }
 @media (min-width: 768px) { .embed-frame { aspect-ratio: 16 / 10; } }
 @media (min-width: 1024px) { .menu-item.no-sub .menu-link { padding-right: 10px; } }
 .embed-frame.embed-video { aspect-ratio: 16 / 9; background: var(--navy-deep); }
+.footer-legal { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.footer-legal li { margin: 0; }
+@media (min-width: 900px) { .footer-note { margin-left: auto; } }
