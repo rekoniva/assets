@@ -9,8 +9,9 @@ Open `index.html` in a browser; no build step is needed.
   - Hubs: `index`, `about`, `membership`, `events`, `community`, `contact`
   - One subpage per submenu item that has content on lakehouston.org
 - **Copy:** pulled from lakehouston.org on 2026-10-30 and kept word for word. The markup was rebuilt; the text wasn't edited.
-- **Colors:** sampled from `assets/img/plh-logo.png`. Red `#CE0F3A` is used for calls to action only; navy `#01285D` for structure.
-- **Logo:** `assets/img/plh-logo.png` is the supplied file, byte for byte. CSS crops off its white margin; it isn't redrawn.
+- **Colors:** sampled from the originally supplied PNG logo. Red `#CE0F3A` is used for calls to action only; navy `#01285D` for structure.
+  The vector logo uses navy `#0D1E58` and red `#B62A3F`, so the site palette could be switched to match.
+- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header and footer.
 - **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
 - **No third-party code:** the menu (WAI-ARIA disclosure pattern) and tap-to-play video are a small hand-written script, `assets/js/site.js`.
 
@@ -38,4 +39,3 @@ Open `index.html` in a browser; no build step is needed.
 - Publications & Communication lists "Annual Business and Community Guide 2023-2024" twice.
 - The Industries tiles link to a personal SharePoint/OneDrive, which public visitors likely can't open.
 - The homepage shows 2 upcoming events, not 3. The full calendar sits behind members.lakehouston.org.
-- The supplied logo PNG is a low-res upscale. Production needs a vector/SVG or high-res file.
