@@ -12,6 +12,16 @@ Open `index.html` in a browser; no build step is needed.
     - `networking-programs.html` holds Bizcom, Business & Bacon and Chamber on Tap.
     - Luncheons is covered by `signature-events.html#luncheons`.
 - **Section navigation:** every page in a section ends with the same "More in <Section>" tiles (hub pages say "Explore <Section>").
+- **Long content folded:** layout only; the words are unchanged.
+  - Incentives: Local and State lists, one row per program.
+  - Advocacy: Objectives, Purpose, Goals and the disaster-relief list are rows.
+  - Area Profile: the stats are tiles.
+  - Publications: the Weekly Email dates collapse.
+  - Networking Programs: each program is a row.
+  - Board and Ambassadors: the first 6 people show, the rest sit behind "Show more".
+  - Event calendar: descriptions fold to 3 lines.
+  - Signature Events: a carousel.
+  - Leadership Lake Houston: the past classes are one list, newest first.
 - **Copy:** kept word for word. The markup was rebuilt; the text wasn't edited.
   - Pages from lakehouston.org were pulled on 2026-10-30.
   - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.

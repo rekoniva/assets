@@ -129,6 +129,23 @@
     update();
   });
 
+  // Event calendar: fold long descriptions to three lines with a Read more / Show less toggle.
+  Array.prototype.forEach.call(document.querySelectorAll('#calendar .event-desc'), function (d) {
+    d.classList.add('clamped');
+    if (d.scrollHeight <= d.clientHeight + 2) { d.classList.remove('clamped'); return; }
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'desc-toggle';
+    btn.textContent = 'Read more';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function () {
+      var open = d.classList.toggle('clamped') === false;
+      btn.textContent = open ? 'Show less' : 'Read more';
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    d.insertAdjacentElement('afterend', btn);
+  });
+
   // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
   var ok = document.querySelector('.form-success');
   if (ok && /[?&]sent=1/.test(location.search)) ok.hidden = false;

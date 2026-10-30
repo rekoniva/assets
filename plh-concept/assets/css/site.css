@@ -571,3 +571,44 @@ p { margin: 0 0 1em; }
 #testimonials .quote blockquote { font-size: 1.05rem; }
 #testimonials .slide { display: block; }
 .carousel.auto-height .carousel-track { align-items: flex-start; transition: height .3s ease; }
+
+/* ---------- Site-wide tidy-ups: stats, compact rows, show-more, logo cards ---------- */
+.stat-grid { list-style: none; padding: 0 !important; margin: 8px 0 28px; display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+.stat-grid li { margin: 0; }
+.stat-grid a { display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px; border-radius: var(--radius); background: var(--soft); text-decoration: none; color: var(--ink); }
+.stat-grid a:hover { background: #E9EDF4; }
+.stat-value { font: 800 1.5rem/1.1 var(--head); color: var(--navy); }
+.stat-label { font-size: .9rem; color: var(--muted); }
+
+.prose li.li-plain { list-style: none; margin-left: -1.25em; }
+.accordion.mini { border-top: 1px solid var(--line); margin-bottom: 12px; }
+.accordion.mini summary { font-size: .98rem; padding: 10px 36px 10px 0; }
+.row-count { font: 400 .9rem var(--body); color: var(--muted); }
+.date-grid { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 4px 16px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 640px) { .date-grid { grid-template-columns: repeat(4, 1fr); } }
+.date-grid li { margin: 0; }
+
+.more-people { margin-top: 14px; }
+.more-people > summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 20px;
+  border: 2px solid var(--navy); border-radius: 999px; font: 700 .95rem/1 var(--head); color: var(--navy);
+}
+.more-people > summary::-webkit-details-marker { display: none; }
+.more-people > summary::after { content: "+"; font-size: 1.2rem; color: var(--red); }
+.more-people[open] > summary { display: none; }
+.more-people > .people { margin-top: 0; }
+
+.accordion.programs summary { font-size: 1.15rem; }
+
+/* Cards that carry a logo: compact, logo beside the text */
+.card:has(> .card-logo) { flex-direction: row; align-items: center; }
+.card-img.card-logo { width: 96px; flex: none; aspect-ratio: 1; padding: 12px; border-bottom: 0; border-right: 1px solid var(--line); }
+.card:has(> .card-logo) .card-body { padding: 12px 16px; }
+.card:has(> .card-logo) h3 { font-size: 1rem; margin: 0; }
+.card:has(> .card-logo) .card-body p { font-size: .92rem; margin-top: 6px; }
+
+/* Event calendar: long descriptions fold to three lines */
+.event-desc.clamped { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.desc-toggle { border: 0; background: none; padding: 0; margin: 0 0 8px; font: 700 .9rem/1.3 var(--head); color: var(--navy); cursor: pointer; text-decoration: underline; text-underline-offset: .18em; }
+.carousel .slide > .card { box-shadow: none; }
