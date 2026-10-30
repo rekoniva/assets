@@ -760,3 +760,17 @@ h2 { margin-bottom: .45em; }
 .card-body:empty { display: none; }
 .investors .card:has(> .card-body:empty) .card-img.card-logo { border-bottom: 0; }
 @media (max-width: 767px) { .site-footer h2 a { display: inline-flex; align-items: center; min-height: 44px; } }
+
+/* Polish pass */
+.home-events .event-desc, #upcoming-events .home-events .event-desc { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.who-split { display: grid; gap: 32px; align-items: center; }
+.who-text > * { max-width: var(--text-col); }
+.who-img { display: none; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+@media (min-width: 900px) {
+  .who-split { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .who-img { display: block; }
+}
+.community-intro .lead { margin-bottom: 0; }
+.community-intro + .hub-group { padding-top: 0; }
+.subnav h2 { margin-bottom: 20px; }
+.nowrap { white-space: nowrap; }

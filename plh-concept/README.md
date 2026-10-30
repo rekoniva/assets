@@ -13,7 +13,7 @@ Open `index.html` in a browser; no build step is needed.
   - Community: Ambassadors, Leadership Lake Houston, Advocacy, Business Resources, Publications
   - Contact
   - Economic Development is footer-only: Lake Houston Area Profile, Incentives, Education, and Properties (their map tool).
-- **Homepage:** photo hero (Join + "See upcoming events"), a short Heart of Opportunity with "Get to Know Us", the next 3 events (one-line descriptions), their video behind a poster (plays only on tap, with controls), and the Elite Investors logo strip.
+- **Homepage:** photo hero (Join + "See upcoming events"), a 2-sentence "Who We Are" teaser with a photo beside it on desktop, the next 3 events (one short sentence each), their video behind a poster (plays only on tap, with controls), and the Elite Investors logo strip.
 - **No repeats:** core values live on About only. Membership benefits copy lives on Membership only. Join appears twice on the homepage (header and hero).
 - **Layout:**
   - One spacing scale: 40px phone, 64px desktop. One content width: 1100px, with a 720px text column.
@@ -42,6 +42,23 @@ Open `index.html` in a browser; no build step is needed.
 
 - **Event calendar** is a snapshot of the saved list view. Two entries are left out because their dates weren't captured.
 - **Member Directory:** 473 businesses (508 rows) from a full scrape on 2026-10-30, grouped into 34 consolidated categories (original categories shown on each card).
+
+## Copy fixes
+
+These typos come from the live site. The concept corrects them; everything else stays word for word.
+
+- **Membership, 3rd testimonial:** "priceless. ." → "priceless."
+- **Elite Investors, Generation Park:**
+  - "spend countries hours" → "spend countless hours"
+  - "enable those of our clients" → "enable our clients"
+  - "For its the employees" → "For it's the employees"
+- **Elite Investors, Memorial Hermann:** "for 40 years Recognized" → "for 40 years. Recognized" (added the missing period)
+
+## Where short copy comes from
+
+- **Homepage "Who We Are":** a 2-sentence teaser. It pairs their homepage line with the first sentence of their Membership Levels page. The full "More than a chamber / The Heart of Opportunity" block, with the mission, is on About only.
+- **Community intro:** the opening sentence of their Signature Events page. The live site has no Community landing copy; its Community Engagement page is placeholder Latin.
+- **Homepage events:** each card shows the first sentence of the event description. If that sentence runs long, it's cut after the last whole word. Hyphenated names like "Axe-Mania" never break at the hyphen.
 
 ## Things found on the live site (left verbatim, worth fixing)
 
