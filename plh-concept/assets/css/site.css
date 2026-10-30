@@ -451,23 +451,31 @@ p { margin: 0 0 1em; }
 .accordion.levels .logo-grid { margin-top: 16px; }
 
 /* ---------- Member directory ---------- */
-.dir-tools { display: grid; gap: 6px; max-width: 420px; margin-bottom: 18px; }
-.dir-tools label { font: 700 .9rem/1.2 var(--head); color: var(--navy); }
-.dir-tools input { font: inherit; padding: 10px 14px; border: 1px solid #B8C2D3; border-radius: 8px; min-height: 44px; }
-.dir-list { list-style: none; padding: 0; margin: 0 0 24px; columns: 1; column-gap: 32px; }
+.dir-search { display: grid; gap: 6px; max-width: 520px; margin-bottom: 18px; }
+.dir-search label { font: 700 .95rem/1.2 var(--head); color: var(--navy); }
+.dir-search input {
+  font: inherit; padding: 10px 14px 10px 42px; min-height: 48px; border: 1px solid #B8C2D3; border-radius: 999px;
+  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A5568' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") 14px center / 18px no-repeat;
+}
+.dir-status { margin: 0; min-height: 1.4em; font-size: .92rem; color: var(--muted); }
+.dir-az ul { list-style: none; margin: 0 0 20px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.dir-az a, .dir-az span {
+  display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px;
+  font: 700 .9rem/1 var(--head); text-decoration: none;
+}
+.dir-az a { background: var(--soft); color: var(--navy); }
+.dir-az a:hover { background: var(--navy); color: var(--white); }
+.dir-az span { color: #A0AABB; }
+.dir-group[hidden] { display: none; }
+.dir-group summary { display: flex; align-items: baseline; gap: 14px; }
+.dir-letter { font: 800 1.3rem/1 var(--head); color: var(--navy); min-width: 1.2em; }
+.dir-count { font: 400 .92rem/1 var(--body); color: var(--muted); }
+.dir-list { list-style: none; padding: 0; margin: 0 0 6px; columns: 1; column-gap: 32px; }
 @media (min-width: 640px) { .dir-list { columns: 2; } }
 @media (min-width: 1024px) { .dir-list { columns: 3; } }
 .dir-list li { padding: 6px 0; border-bottom: 1px solid var(--line); break-inside: avoid; }
 .dir-list li[hidden] { display: none; }
-
-/* Facebook cover banner above the footer columns. On phones it is cropped
-   around the logo (kept at a readable size) instead of being shrunk to fit. */
-.site-footer:has(.footer-banner) { padding-top: 0; }
-.footer-banner { margin-bottom: 40px; background: #fff; }
-.footer-banner img { width: 100%; height: auto; display: block; }
-@media (max-width: 767px) {
-  .footer-banner img { height: 300px; object-fit: cover; object-position: 90% 50%; }
-}
+.dir-groups { margin-bottom: 24px; }
 
 /* ---------- Contact form ---------- */
 .contact-form { display: grid; gap: 16px; max-width: 560px; }
@@ -483,3 +491,4 @@ p { margin: 0 0 1em; }
 .field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--red); outline-offset: 1px; border-color: var(--navy); }
 .contact-form .btn { justify-self: start; min-width: 140px; }
 .form-success { background: #EAF6EE; border: 1px solid #9CCFAE; color: #1E5631; border-radius: 8px; padding: 12px 14px; font-weight: 700; }
+@media (max-width: 639px) { .dir-az { display: none; } }

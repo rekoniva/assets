@@ -60,16 +60,30 @@
   window.addEventListener('hashchange', openTarget);
   openTarget();
 
-  // Directory: filter the category list as you type.
-  Array.prototype.forEach.call(document.querySelectorAll('[data-filter]'), function (input) {
-    var items = document.querySelectorAll(input.getAttribute('data-filter') + ' > li');
-    input.addEventListener('input', function () {
-      var q = input.value.trim().toLowerCase();
-      Array.prototype.forEach.call(items, function (li) {
-        li.hidden = q !== '' && li.textContent.toLowerCase().indexOf(q) === -1;
+  // Directory: search across all letter groups; matching letters open, the rest hide.
+  var ds = document.querySelector('[data-dir-search]');
+  if (ds) {
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.dir-group'));
+    var status = document.getElementById('dir-status');
+    ds.addEventListener('input', function () {
+      var q = ds.value.trim().toLowerCase();
+      var total = 0;
+      groups.forEach(function (g) {
+        var hits = 0;
+        Array.prototype.forEach.call(g.querySelectorAll('li'), function (li) {
+          var match = q === '' || li.textContent.toLowerCase().indexOf(q) !== -1;
+          li.hidden = !match;
+          if (match) hits++;
+        });
+        total += hits;
+        g.hidden = q !== '' && hits === 0;
+        g.open = q !== '' && hits > 0;
       });
+      status.textContent = q === '' ? '' :
+        total === 0 ? 'No categories match \u201c' + ds.value.trim() + '\u201d.' :
+        total + (total === 1 ? ' category matches.' : ' categories match.');
     });
-  });
+  }
 
   // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
   var ok = document.querySelector('.form-success');
