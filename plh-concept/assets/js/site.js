@@ -96,6 +96,12 @@
     };
     dq.addEventListener('input', run);
     dcat.addEventListener('change', run);
+    var params = new URLSearchParams(location.search);
+    if (params.get('q') || params.get('cat')) {
+      dq.value = params.get('q') || '';
+      dcat.value = params.get('cat') || '';
+      run();
+    }
     dform.addEventListener('submit', function (ev) { ev.preventDefault(); run(); });
   }
 
@@ -145,6 +151,83 @@
     });
     d.insertAdjacentElement('afterend', btn);
   });
+
+  // "Read more" for folded intro text.
+  Array.prototype.forEach.call(document.querySelectorAll('.fold-toggle'), function (btn) {
+    var body = btn.previousElementSibling;
+    btn.addEventListener('click', function () {
+      var open = body.hidden;
+      body.hidden = !open;
+      btn.textContent = open ? 'Show less' : 'Read more';
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  // Site search (search.html): every word must match; title matches rank first; grouped by kind.
+  var results = document.getElementById('search-results');
+  if (results && window.PLH_INDEX) {
+    var input = document.getElementById('search-q');
+    var sstatus = document.getElementById('search-status');
+    var ORDER = ['Pages', 'Topics', 'Events', 'People', 'Businesses'];
+    var LIMIT = 6;
+    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var data = window.PLH_INDEX.map(function (it) {
+      it.tl = it.t.toLowerCase();
+      it.all = (it.t + ' ' + it.c + ' ' + it.d + ' ' + it.x).toLowerCase();
+      return it;
+    });
+    var render = function () {
+      var q = input.value.trim().toLowerCase();
+      var words = q.split(/\s+/).filter(Boolean);
+      if (!words.length) { results.innerHTML = ''; sstatus.textContent = ''; return; }
+      var hits = data.filter(function (it) {
+        return words.every(function (w) { return it.all.indexOf(w) !== -1; });
+      }).map(function (it) {
+        var score = (it.tl === q ? 100 : 0) + (it.tl.indexOf(q) === 0 ? 50 : 0) + (it.tl.indexOf(q) !== -1 ? 30 : 0) +
+          words.filter(function (w) { return it.tl.indexOf(w) !== -1; }).length * 10;
+        return { it: it, score: score };
+      }).sort(function (a, b) { return b.score - a.score; });
+      // Groups follow their best match (a business named "Golf…" outranks a page that mentions golf).
+      var best = {};
+      hits.forEach(function (h) { if (!(h.it.k in best)) best[h.it.k] = h.score; });
+      var kinds = ORDER.filter(function (k) { return k in best; }).sort(function (a, b) {
+        return (best[b] - best[a]) || (ORDER.indexOf(a) - ORDER.indexOf(b));
+      });
+      var html = '';
+      kinds.forEach(function (kind) {
+        var group = hits.filter(function (h) { return h.it.k === kind; });
+        if (!group.length) return;
+        html += '<section class="sr-group"><h2>' + kind + ' <span class="row-count">(' + group.length + ')</span></h2><ul class="sr-list">';
+        group.forEach(function (h, i) {
+          var it = h.it;
+          html += '<li' + (i >= LIMIT ? ' hidden' : '') + '><a href="' + esc(it.u) + '"><strong>' + esc(it.t) + '</strong>' +
+            (it.c ? '<span class="sr-ctx">' + esc(it.c) + '</span>' : '') +
+            (it.d ? '<span class="sr-desc">' + esc(it.d) + '</span>' : '') + '</a></li>';
+        });
+        html += '</ul>';
+        if (group.length > LIMIT) html += '<button type="button" class="desc-toggle sr-more">Show all ' + group.length + '</button>';
+        html += '</section>';
+      });
+      results.innerHTML = html;
+      sstatus.textContent = hits.length ? hits.length + (hits.length === 1 ? ' result' : ' results') + ' for \u201c' + input.value.trim() + '\u201d.' :
+        'No results for \u201c' + input.value.trim() + '\u201d. Try a business name, an event, or a word like \u201cmembership\u201d.';
+    };
+    results.addEventListener('click', function (ev) {
+      var b = ev.target.closest('.sr-more');
+      if (!b) return;
+      Array.prototype.forEach.call(b.previousElementSibling.querySelectorAll('li[hidden]'), function (li) { li.hidden = false; });
+      b.remove();
+    });
+    var t = 0;
+    input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(render, 120); });
+    input.form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      history.replaceState(null, '', 'search.html?q=' + encodeURIComponent(input.value.trim()));
+      render();
+    });
+    input.value = new URLSearchParams(location.search).get('q') || '';
+    render();
+  }
 
   // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
   var ok = document.querySelector('.form-success');

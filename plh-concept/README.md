@@ -11,6 +11,7 @@ Open `index.html` in a browser; no build step is needed.
     - `membership.html` holds the why-join copy, Membership Levels (one collapsible row per level, price on the right; the duplicate price tiles were dropped), a Testimonials carousel and both sponsorship links.
     - `networking-programs.html` holds Bizcom, Business & Bacon and Chamber on Tap.
     - Luncheons is covered by `signature-events.html#luncheons`.
+- **Site search:** a search icon in the header on every page, plus a search box and four quick links (Member Directory, Event Calendar, Membership Levels, Contact) under the homepage hero. `search.html` searches pages, page sections, events, people and all directory businesses from a prebuilt index (`assets/js/search-index.js`). Business results open the directory already filtered (`member-directory.html?q=`).
 - **Section navigation:** every page in a section ends with the same "More in <Section>" tiles (hub pages say "Explore <Section>").
 - **Long content folded:** layout only; the words are unchanged.
   - Incentives: Local and State lists, one row per program.
