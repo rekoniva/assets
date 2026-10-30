@@ -5,39 +5,50 @@ Open `index.html` in a browser; no build step is needed.
 
 ## What's here
 
-- **21 pages on one template** (same sticky header, hero, cards and footer):
+- **26 pages on one template** (same sticky header, hero, cards and footer):
   - Hubs: `index`, `about`, `membership`, `events`, `community`, `development`, `contact`
-  - One subpage per submenu item that has content on lakehouston.org
-  - Membership Levels, Testimonials and both sponsorship links are merged into `membership.html`
-  - Bizcom, Business & Bacon and Chamber on Tap are merged into `networking-programs.html`; Luncheons is covered by `signature-events.html#luncheons`
-- **Copy:** pulled from lakehouston.org on 2026-10-30 and kept word for word. The markup was rebuilt; the text wasn't edited.
+  - One page per menu item, with these merges:
+    - `membership.html` holds Membership Levels (collapsible, one section per level), Testimonials and both sponsorship links.
+    - `networking-programs.html` holds Bizcom, Business & Bacon and Chamber on Tap.
+    - Luncheons is covered by `signature-events.html#luncheons`.
+- **Copy:** kept word for word. The markup was rebuilt; the text wasn't edited.
+  - Pages from lakehouston.org were pulled on 2026-10-30.
+  - The members.lakehouston.org pages (staff, board, ambassadors, contact, calendar, deals, directory categories) were rebuilt from copies saved by hand on 2026-10-30. That site blocks automated access.
 - **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
-- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header and footer.
+- **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header.
 - **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
-- **No third-party code:** the menu (WAI-ARIA disclosure pattern) and tap-to-play video are a small hand-written script, `assets/js/site.js`.
+- **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the tap-to-play video, the deep links into collapsible sections, and the directory filter.
 
 ## Menu map
 
 | Menu | Pages |
 |---|---|
-| About | Who We Are, Partnership Staff ↗, Board of Directors ↗, Our Elite Investors |
-| Membership | Membership Levels (levels and testimonials on one page), Sponsorship Opportunities (2027 PDF and Canva deck), Member Directory ↗, Lake Houston Deals ↗ |
-| Events | Upcoming Events, Full Calendar ↗, Signature Events (includes Monthly Luncheons), Networking Programs (Bizcom, Business & Bacon, Chamber on Tap), Leadership Lake Houston, Recorded Events (their YouTube uploads embedded) |
-| Community | Volunteer, Ambassadors ↗, Advocacy, Business Resources, Publications & Communication |
+| About | Who We Are, Partnership Staff, Board of Directors, Our Elite Investors |
+| Membership | Membership Levels, Sponsorship Opportunities, Member Directory, Lake Houston Deals |
+| Events | Event Calendar, Signature Events, Networking Programs, Leadership Lake Houston, Recorded Events (their YouTube uploads embedded) |
+| Community | Volunteer, Ambassadors, Advocacy, Business Resources, Publications & Communication |
 | Development | Lake Houston Area Profile, Incentives, Education, Industries, Properties (their map tool embedded) |
 | Contact | single page, no submenu |
 
-↗ = links out to their live system (members.lakehouston.org, etc.). Login and Join links live in the sticky header.
+These still link out on purpose:
+- **Login and Join** (their live member system)
+- **The sponsorship PDF and the Canva deck**
+- **Lake Houston Jobs**
+- **The full member directory search**
+- **Event detail pages** for the two events their homepage links to
 
-## Placeholders
+## Snapshots and placeholders
 
+- **Event calendar** is a snapshot of the saved list view, so it won't update on its own.
+  - Two entries are left out because the saved page didn't include their dates: an untitled Business & Bacon session and the Elected Officials Breakfast Reception.
+- **Member Directory:** shows the category list only. Listings inside each category weren't captured (marked `[PLACEHOLDER]`).
 - **Volunteer:** lakehouston.org/volunteer returns a 404, so there's no copy to bring over.
 - **FAQ, Privacy policy, Terms and conditions:** these are dead `#` links on the live site.
 
 ## Things found on the live site (left verbatim, worth fixing)
 
-- Homepage event time reads "11:0 AM". The Nov 12 Bizcom time says "(CDT)", but that date falls in CST.
+- Their homepage lists the Veterans luncheon at "11:0 AM". It also gives Sheldon Bizcom a different start time and timezone from their calendar (11:00 AM (CDT) vs 10:45 AM). This concept uses the calendar's times.
 - The Bizcom page sponsorship email is `SMagee@LakeHosuton.org` (typo, so the mailto bounces).
 - Publications & Communication lists "Annual Business and Community Guide 2023-2024" twice.
 - The Industries tiles link to a personal SharePoint/OneDrive, which public visitors likely can't open.
-- The homepage shows 2 upcoming events, not 3. The full calendar sits behind members.lakehouston.org.
+- Jordan Buish is "Director of Member Services" on the Staff page but "Director of Membership Development" on Ambassadors and Membership Levels.

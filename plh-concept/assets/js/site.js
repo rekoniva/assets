@@ -51,6 +51,26 @@
 
   desktop.addEventListener('change', function () { setNav(false); closeSubs(); });
 
+  // Open a collapsible section when a link points at it (e.g. membership level chips).
+  function openTarget() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+
+  // Directory: filter the category list as you type.
+  Array.prototype.forEach.call(document.querySelectorAll('[data-filter]'), function (input) {
+    var items = document.querySelectorAll(input.getAttribute('data-filter') + ' > li');
+    input.addEventListener('input', function () {
+      var q = input.value.trim().toLowerCase();
+      Array.prototype.forEach.call(items, function (li) {
+        li.hidden = q !== '' && li.textContent.toLowerCase().indexOf(q) === -1;
+      });
+    });
+  });
+
   // Video: poster + play button; plays only on tap, with native controls.
   Array.prototype.forEach.call(document.querySelectorAll('.video-frame'), function (frame) {
     var video = frame.querySelector('video');

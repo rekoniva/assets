@@ -237,16 +237,11 @@ p { margin: 0 0 1em; }
 .events { display: grid; gap: 16px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .events { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .events.three { grid-template-columns: repeat(3, 1fr); } }
-.event { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: start;
+.event { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
-.event-img { width: 96px; height: 128px; object-fit: cover; object-position: top; border-radius: 6px; background: var(--soft); }
 .event h3 { font-size: 1.1rem; margin-bottom: 6px; }
 .event-date { font: 700 .82rem/1.2 var(--head); color: var(--red-dark); letter-spacing: .04em; text-transform: uppercase; margin: 0 0 6px; }
 .event-meta { margin: 0 0 8px; font-size: .95rem; color: var(--muted); line-height: 1.45; }
-@media (min-width: 480px) {
-  .event { grid-template-columns: 120px 1fr; }
-  .event-img { width: 120px; height: 160px; }
-}
 
 /* ---------- Video ---------- */
 .video-frame {
@@ -372,9 +367,7 @@ p { margin: 0 0 1em; }
 .site-footer a:hover { text-decoration: underline; color: var(--white); }
 .footer-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
 @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .footer-grid { grid-template-columns: 1.1fr 1fr .8fr 1.2fr; } }
-.footer-logo { display: inline-block; background: var(--white); border-radius: 8px; padding: 6px; margin-bottom: 14px; }
-.footer-logo img { height: 80px; width: auto; }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 1fr .8fr 1.2fr; } }
 .footer-links { list-style: none; margin: 0; padding: 0; }
 .footer-links li { margin: 0; }
 .footer-links a, .footer-links span { display: inline-block; padding: 3px 0; line-height: 1.4; }
@@ -416,3 +409,61 @@ p { margin: 0 0 1em; }
 .footer-legal { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .footer-legal li { margin: 0; }
 @media (min-width: 900px) { .footer-note { margin-left: auto; } }
+
+/* ---------- Event calendar (date badges) ---------- */
+@media (min-width: 480px) { .event { grid-template-columns: 72px 1fr; } }
+.date-badge {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  background: var(--navy); color: var(--white); border-radius: 8px; padding: 8px 4px; text-align: center;
+  font: 700 .72rem/1 var(--head); letter-spacing: .08em; text-transform: uppercase;
+}
+.date-badge strong { font-size: 1.6rem; line-height: 1; letter-spacing: 0; }
+.event-desc { font-size: .95rem; color: var(--muted); margin: 0 0 8px; }
+#upcoming-events .event-desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.month-head { margin: 28px 0 14px; font-size: 1.2rem; }
+.month-head:first-of-type { margin-top: 0; }
+#calendar .events { margin-bottom: 8px; }
+
+/* ---------- People (staff, board, ambassadors) ---------- */
+.lead { font-size: 1.08rem; max-width: 75ch; margin-bottom: 24px; }
+.people { display: grid; gap: 14px; grid-template-columns: 1fr; margin-bottom: 8px; }
+@media (min-width: 640px) { .people { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .people { grid-template-columns: repeat(3, 1fr); } }
+.person { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); }
+.person h3 { margin-bottom: 4px; }
+.person p { margin: 0 0 4px; }
+.person-org { color: var(--ink); font-weight: 700; }
+.person-role { color: var(--red-dark); font: 700 .8rem/1.3 var(--head); letter-spacing: .04em; text-transform: uppercase; }
+.person-contact { display: flex; align-items: center; gap: 8px; margin-top: 6px !important; font-size: .95rem; }
+.person-contact svg { width: 16px; height: 16px; color: var(--red); flex: none; }
+.person-bio { margin-top: 10px; }
+.person-bio summary { cursor: pointer; font: 700 .9rem/1.3 var(--head); color: var(--navy); }
+.person-bio p { font-size: .95rem; color: var(--muted); margin-top: 8px; }
+
+/* ---------- Membership levels accordion ---------- */
+.chips a { display: block; text-decoration: none; color: inherit; }
+.chips li:has(a):hover { background: #E9EDF4; }
+.accordion.levels details { border-bottom: 1px solid var(--line); }
+.accordion.levels summary { font-size: 1.1rem; padding: 16px 36px 16px 0; }
+.accordion.levels .details-body { max-width: 760px; }
+.level-img { width: 100%; max-width: 520px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin-bottom: 16px; }
+.accordion.levels .logo-grid { margin-top: 16px; }
+
+/* ---------- Member directory ---------- */
+.dir-tools { display: grid; gap: 6px; max-width: 420px; margin-bottom: 18px; }
+.dir-tools label { font: 700 .9rem/1.2 var(--head); color: var(--navy); }
+.dir-tools input { font: inherit; padding: 10px 14px; border: 1px solid #B8C2D3; border-radius: 8px; min-height: 44px; }
+.dir-list { list-style: none; padding: 0; margin: 0 0 24px; columns: 1; column-gap: 32px; }
+@media (min-width: 640px) { .dir-list { columns: 2; } }
+@media (min-width: 1024px) { .dir-list { columns: 3; } }
+.dir-list li { padding: 6px 0; border-bottom: 1px solid var(--line); break-inside: avoid; }
+.dir-list li[hidden] { display: none; }
+
+/* Facebook cover banner above the footer columns. On phones it is cropped
+   around the logo (kept at a readable size) instead of being shrunk to fit. */
+.site-footer:has(.footer-banner) { padding-top: 0; }
+.footer-banner { margin-bottom: 40px; background: #fff; }
+.footer-banner img { width: 100%; height: auto; display: block; }
+@media (max-width: 767px) {
+  .footer-banner img { height: 300px; object-fit: cover; object-position: 88% 50%; }
+}
