@@ -29,7 +29,7 @@ Open `index.html` in a browser; no build step is needed.
 - **Images and video:** hotlinked from their CDN. The exceptions:
   - The Elite Investors logos are local copies in `assets/img/logos/`, with only their white margins trimmed.
   - `assets/img/video-poster.jpg` is a frame from their video.
-- **What changed:** `changes.html` (linked in the footer) is a one-page summary to share with the chamber. It quotes the live-site typos as found, so it skips the copy fixes and is left out of site search.
+- **Website Audit & Redesign:** `changes.html` (footer link "What changed") is a one-page summary to share with the chamber. It quotes the live-site typos as found, so it skips the copy fixes and is left out of site search.
 - **Contact form:** a working Netlify Form. Submissions land in the Netlify dashboard under Forms, not with the chamber.
 
 ## Retired pages (no usable real content)
