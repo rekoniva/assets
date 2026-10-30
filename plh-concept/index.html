@@ -28,7 +28,15 @@
   </div>
 </header>
 <main id="main">
-<section class="hero hero-home" style="--hero-img:url('https://edge.growthzonecms.com/sites/2461/2025/07/imgi_7_llh_economic-development2019_22_51208580682_o-1-scaled-2.jpg')">
+<section class="hero hero-home" style="background-image:url('assets/img/video-poster.jpg')">
+  <!-- Muted background loop on tablet/desktop; site.js only loads it there and when motion is OK. -->
+  <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/video-poster.jpg"
+         data-src="https://edge.growthzonecms.com/sites/2461/2025/11/12MB-Final.mp4" aria-hidden="true" tabindex="-1"></video>
+  <button class="hero-pause" type="button" aria-pressed="false" hidden>
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <span class="sr-only">Pause background video</span>
+  </button>
   <div class="container">
     <h1 class="eyebrow-h1">Partnership Lake Houston</h1>
     <p class="tagline">Live Here. Build Here. Grow Here... Discover What&#x27;s Possible</p>
@@ -85,17 +93,6 @@
 </article>
     </div>
     <p class="section-foot"><a class="text-link" href="events.html#calendar">View full calendar</a></p>
-  </div>
-</section>
-
-<section class="section section-video" aria-label="Partnership Lake Houston video">
-  <div class="container">
-    <div class="video-frame">
-      <video controls preload="none" playsinline poster="assets/img/video-poster.jpg" aria-label="Partnership Lake Houston video">
-        <source src="https://edge.growthzonecms.com/sites/2461/2025/11/12MB-Final.mp4" type="video/mp4">
-      </video>
-      <button class="video-play" type="button" hidden><span class="play-dot"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="sr-only">Play video</span></button>
-    </div>
   </div>
 </section>
 

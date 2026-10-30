@@ -75,18 +75,20 @@
   var ok = document.querySelector('.form-success');
   if (ok && /[?&]sent=1/.test(location.search)) ok.hidden = false;
 
-  // Video: poster + play button; plays only on tap, with native controls.
-  Array.prototype.forEach.call(document.querySelectorAll('.video-frame'), function (frame) {
-    var video = frame.querySelector('video');
-    var play = frame.querySelector('.video-play');
-    if (!video || !play) return;
-    video.controls = false;
-    play.hidden = false;
-    play.addEventListener('click', function () {
-      frame.classList.add('is-playing');
-      video.controls = true;
-      video.play();
-      video.focus();
+  // Hero background video: muted loop on tablet/desktop only, never for reduced-motion users.
+  var hv = document.querySelector('.hero-video');
+  var hp = document.querySelector('.hero-pause');
+  if (hv && hp && window.matchMedia('(min-width: 768px)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hv.src = hv.getAttribute('data-src');
+    var p = hv.play();
+    var shown = function () { hv.closest('.hero').classList.add('has-video'); hp.hidden = false; };
+    if (p && p.then) p.then(shown).catch(function () {}); else shown();
+    hp.addEventListener('click', function () {
+      var pause = !hv.paused;
+      if (pause) hv.pause(); else hv.play();
+      hp.setAttribute('aria-pressed', String(pause));
+      hp.querySelector('.sr-only').textContent = pause ? 'Play background video' : 'Pause background video';
     });
-  });
+  }
 })();
