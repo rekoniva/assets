@@ -405,3 +405,6 @@ p { margin: 0 0 1em; }
 .hub-group + .hub-group { padding-top: 0; }
 .hub-group .cards { margin-bottom: 0; }
 .link-card .card-body { padding: 16px 18px; }
+.cards:has(> .card:only-child) { grid-template-columns: 1fr; max-width: 760px; }
+.program + .program { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
+.prose > figure.photo, .program > figure.photo { max-width: 560px; }
