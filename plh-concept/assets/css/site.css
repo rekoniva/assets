@@ -451,13 +451,27 @@ p { margin: 0 0 1em; }
 .accordion.levels .logo-grid { margin-top: 16px; }
 
 /* ---------- Member directory ---------- */
-.dir-search { display: grid; gap: 6px; max-width: 520px; margin-bottom: 18px; }
-.dir-search label { font: 700 .95rem/1.2 var(--head); color: var(--navy); }
-.dir-search input {
-  font: inherit; padding: 10px 14px 10px 42px; min-height: 48px; border: 1px solid #B8C2D3; border-radius: 999px;
-  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A5568' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") 14px center / 18px no-repeat;
+.dir-searchbar {
+  display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px;
+  padding: 8px; background: var(--soft); border-radius: 18px;
 }
-.dir-status { margin: 0; min-height: 1.4em; font-size: .92rem; color: var(--muted); }
+.dir-searchbar input, .dir-searchbar select {
+  font: inherit; color: var(--ink); min-height: 50px; padding: 10px 18px; width: 100%;
+  border: 1px solid #B8C2D3; border-radius: 12px; background-color: var(--white);
+}
+.dir-searchbar select {
+  appearance: none; padding-right: 44px; cursor: pointer;
+  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%234A5568'/%3E%3C/svg%3E") right 14px center / 22px no-repeat;
+}
+.dir-searchbar .btn { min-height: 50px; border-radius: 12px; gap: 8px; font-size: 1rem; }
+.dir-searchbar .btn svg { width: 18px; height: 18px; }
+@media (min-width: 768px) {
+  .dir-searchbar { grid-template-columns: 1.15fr 1fr auto; gap: 0; padding: 6px; border-radius: 999px; }
+  .dir-searchbar input { border-radius: 999px 0 0 999px; border-right: 0; padding-left: 24px; }
+  .dir-searchbar select { border-radius: 0; }
+  .dir-searchbar .btn { border-radius: 0 999px 999px 0; padding: 0 30px; }
+}
+.dir-status { margin: 0 0 14px; min-height: 1.4em; font-size: .92rem; color: var(--muted); padding-left: 8px; }
 .dir-az ul { list-style: none; margin: 0 0 20px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .dir-az a, .dir-az span {
   display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px;

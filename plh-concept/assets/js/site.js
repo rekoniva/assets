@@ -60,29 +60,37 @@
   window.addEventListener('hashchange', openTarget);
   openTarget();
 
-  // Directory: search across all letter groups; matching letters open, the rest hide.
-  var ds = document.querySelector('[data-dir-search]');
-  if (ds) {
+  // Directory: keyword + category search across all letter groups; matching letters open, the rest hide.
+  var dform = document.querySelector('[data-dir-search]');
+  if (dform) {
+    var dq = dform.querySelector('#dir-q');
+    var dcat = dform.querySelector('#dir-cat');
     var groups = Array.prototype.slice.call(document.querySelectorAll('.dir-group'));
     var status = document.getElementById('dir-status');
-    ds.addEventListener('input', function () {
-      var q = ds.value.trim().toLowerCase();
+    var run = function () {
+      var q = dq.value.trim().toLowerCase();
+      var cat = dcat.value;
+      var active = q !== '' || cat !== '';
       var total = 0;
       groups.forEach(function (g) {
         var hits = 0;
         Array.prototype.forEach.call(g.querySelectorAll('li'), function (li) {
-          var match = q === '' || li.textContent.toLowerCase().indexOf(q) !== -1;
+          var t = li.textContent;
+          var match = (q === '' || t.toLowerCase().indexOf(q) !== -1) && (cat === '' || t === cat);
           li.hidden = !match;
           if (match) hits++;
         });
         total += hits;
-        g.hidden = q !== '' && hits === 0;
-        g.open = q !== '' && hits > 0;
+        g.hidden = active && hits === 0;
+        g.open = active && hits > 0;
       });
-      status.textContent = q === '' ? '' :
-        total === 0 ? 'No categories match \u201c' + ds.value.trim() + '\u201d.' :
-        total + (total === 1 ? ' category matches.' : ' categories match.');
-    });
+      status.textContent = !active ? '' :
+        total === 0 ? 'No results. Try another word or category.' :
+        total + (total === 1 ? ' result.' : ' results.');
+    };
+    dq.addEventListener('input', run);
+    dcat.addEventListener('change', run);
+    dform.addEventListener('submit', function (ev) { ev.preventDefault(); run(); });
   }
 
   // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
