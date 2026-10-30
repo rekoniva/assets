@@ -17,7 +17,7 @@ Open `index.html` in a browser; no build step is needed.
 - **Colors:** taken from the official logo. Red `#B62A3F` is used for calls to action only; navy `#0D1E58` for structure.
 - **Logo:** `assets/img/plh-logo.svg` is the supplied vector file, byte for byte, used in the header. On the homepage only, the footer opens with their Facebook cover banner (`assets/img/fb-cover.jpg`), cropped around the logo on phones.
 - **Images and video:** hotlinked from their CDN (`edge.growthzonecms.com`). `assets/img/video-poster.jpg` is a frame from their own video.
-- **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the homepage hero video (muted loop on tablet/desktop with a pause button; phones and reduced-motion users get a still frame), the deep links into collapsible sections, and the directory filter.
+- **No third-party code:** `assets/js/site.js` is a small hand-written script. It runs the menu (WAI-ARIA disclosure pattern), the homepage hero video (muted loop on tablet/desktop with a pause button; phones and reduced-motion users get a still frame), the deep links into collapsible sections, the directory search, and the Education photo carousels (scroll-snap, swipe on phones, arrow buttons with a counter).
 
 ## Menu map
 

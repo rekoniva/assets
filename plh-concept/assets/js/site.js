@@ -93,6 +93,31 @@
     dform.addEventListener('submit', function (ev) { ev.preventDefault(); run(); });
   }
 
+  // Photo carousels: arrows step one photo, swipe/scroll snaps, counter follows along.
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel'), function (car) {
+    var track = car.querySelector('.carousel-track');
+    var prev = car.querySelector('.carousel-prev');
+    var next = car.querySelector('.carousel-next');
+    var count = car.querySelector('.carousel-count');
+    var n = track.children.length;
+    var index = function () { return Math.round(track.scrollLeft / Math.max(track.clientWidth, 1)); };
+    var update = function () {
+      var i = index();
+      count.textContent = (i + 1) + ' / ' + n;
+      prev.disabled = i <= 0;
+      next.disabled = i >= n - 1;
+    };
+    var go = function (d) { track.scrollTo({ left: (index() + d) * track.clientWidth }); };
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    var raf = 0;
+    track.addEventListener('scroll', function () {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    });
+    update();
+  });
+
   // Contact form: show the confirmation after Netlify redirects back with ?sent=1.
   var ok = document.querySelector('.form-success');
   if (ok && /[?&]sent=1/.test(location.search)) ok.hidden = false;
