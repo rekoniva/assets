@@ -73,7 +73,7 @@ def feral(card, fonts, poses, out):
     d.text((W - 72 - d.textlength(t, font=ff), H - 104), t, font=ff, fill="#FFB020")
     if card.get("disclosure"):  # paid ads only: broker's registered name, small (16 TAC 25.486)
         d.text((72, H - 48), card["disclosure"], font=font(fonts["barlow"], 24), fill="#9C9385")
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 
 # ---- Extra Feral Watt styles (added Nov 13, 2026, so the feed doesn't look the same every post) ----
@@ -109,7 +109,7 @@ def fw_bill(card, fonts, poses, out):
         d.text((170, y), it, font=item_f, fill=INK); y += 92
     img.paste(pose, (W - 60 - pose.width - 20, H - 150 - pose.height - 10), pose)
     _footer(d, fonts, TEXT, AMBER)
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 def fw_split(card, fonts, poses, out):
     """Two panels side by side. card: headline, left {title, text}, right {title, text}, pose."""
@@ -133,7 +133,7 @@ def fw_split(card, fonts, poses, out):
         yy = bottom + 40
         for l in sl: d.text((72, yy), l, font=sf, fill=TEXT); yy += int(ss * 1.28)
     _footer(d, fonts, TEXT, AMBER)
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 def fw_amber(card, fonts, poses, out):
     """Full amber background, dark type. Loud. card: headline, sub, pose."""
@@ -150,7 +150,7 @@ def fw_amber(card, fonts, poses, out):
     d.rectangle([0, H - 140, W, H], fill=INK)
     img.paste(pose, (W - pose.width - 30, H - 140 - pose.height + 30), pose)
     _footer(d, fonts, TEXT, AMBER, y=H - 92)
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 def fw_myth(card, fonts, poses, out):
     """Myth or Fact quiz card with two answer boxes. card: statement, pose."""
@@ -173,7 +173,7 @@ def fw_myth(card, fonts, poses, out):
     pose = _pose(poses, card.get("pose", "meh"), (300, 300))
     img.paste(pose, (W - pose.width - 40, H - 130 - pose.height + 30), pose)
     _footer(d, fonts, TEXT, AMBER)
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 def fw_vee(card, fonts, poses, out):
     """Vee + Static drawing on top, caption band below. card: headline, sub. Needs art at assets/vee-static.jpg."""
@@ -192,7 +192,7 @@ def fw_vee(card, fonts, poses, out):
         y += 14
         for l in sl: d.text((72, y), l, font=sf, fill="#E4DCCD"); y += int(ss * 1.28)
     _footer(d, fonts, TEXT, AMBER)
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 FW_STYLES = {"bill": fw_bill, "split": fw_split, "amber": fw_amber, "myth": fw_myth, "vee": fw_vee}
 
@@ -221,7 +221,7 @@ def howdy(card, fonts, logo, out):
     tf = font(fonts["dmsans"], 46, "SemiBold")
     t = "Y'all settled?"
     d.text((W - 72 - d.textlength(t, font=tf), H - band // 2 - 30), t, font=tf, fill="#F6EAD0")
-    img.save(os.path.join(out, card["slug"] + ".png"))
+    img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
 if __name__ == "__main__":
     cards_path, out, fdir, pdir = sys.argv[1:5]
