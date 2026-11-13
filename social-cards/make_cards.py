@@ -70,6 +70,8 @@ def feral(card, fonts, poses, out):
     d.text((72, H - 104), "Not cute. Correct.", font=ff, fill="#F3EDE2")
     t = "feralwatt.com"
     d.text((W - 72 - d.textlength(t, font=ff), H - 104), t, font=ff, fill="#FFB020")
+    if card.get("disclosure"):  # paid ads only: broker's registered name, small (16 TAC 25.486)
+        d.text((72, H - 48), card["disclosure"], font=font(fonts["barlow"], 24), fill="#9C9385")
     img.save(os.path.join(out, card["slug"] + ".png"))
 
 def howdy(card, fonts, logo, out):
