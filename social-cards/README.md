@@ -19,3 +19,7 @@ Vee asked for graphics that don't all look the same. Set `"style"` on a Feral Wa
 - `vee`: the Vee + Static drawing (`vee-static.jpg` from feralwatt-site, put it in the pose folder) with a caption band. Good for Meet Vee + Static.
 
 Rotate styles so no two posts in a row share one. Poses: the approved Static set only.
+
+## Notary and Wild Manners (Nov 16, 2026)
+
+Every calendar post now needs a graphic, so the generator also draws `"brand": "Notary"` (paper, ink, gold; Playfair Display + Inter; optional `tag` for the footer line) and `"brand": "Wild Manners"` (cream, petrol teal; Cormorant Garamond + Montserrat; optional `items` checklist or `phone` {title, lines}). Fonts come from google/fonts: PlayfairDisplay, Inter, CormorantGaramond, Montserrat (variable) and GreatVibes-Regular.

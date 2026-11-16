@@ -1,6 +1,6 @@
 """Free social card generator for Vee's brands (no AI credits, no Canva).
 Usage: python3 make_cards.py cards.json OUT_DIR FONT_DIR POSE_DIR
-cards.json: [{"brand": "Feral Watt"|"Howdy Move", "slug": "...", "headline": "...", "sub": "...", "pose": "reading", "style": "poster"}]
+cards.json: [{"brand": "Feral Watt"|"Howdy Move"|"Notary"|"Wild Manners", "slug": "...", "headline": "...", "sub": "...", "pose": "reading", "style": "poster"}]
 Feral Watt styles: poster (default), bill, split, amber, myth, vee. See each fw_* function for its fields.
 """
 import json, sys, os, textwrap
@@ -194,6 +194,77 @@ def fw_vee(card, fonts, poses, out):
     _footer(d, fonts, TEXT, AMBER)
     img.save(os.path.join(out, card["slug"] + ".png")); img.convert("RGB").save(os.path.join(out, card["slug"] + ".jpg"), "JPEG", quality=90)
 
+
+# ---- Notary and Wild Manners cards (added Nov 16, 2026: every calendar post needs a graphic) ----
+def _save(img, out, slug):
+    img.save(os.path.join(out, slug + ".png")); img.convert("RGB").save(os.path.join(out, slug + ".jpg"), "JPEG", quality=90)
+
+def notary(card, fonts, out):
+    """Veronica Miller Notary Concierge. Paper, ink, gold. Playfair + Inter. No all caps, no seals. card: headline, sub."""
+    PAP, INKN, GOLD = "#F9F8F6", "#1A1A1A", "#C5A059"
+    img = Image.new("RGB", (W, H), PAP); d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, W, 14], fill=GOLD)
+    d.text((72, 70), "Veronica Miller Notary Concierge", font=font(fonts["inter"], 38, "Medium"), fill="#6E6A63")
+    d.rectangle([72, 132, 72 + 110, 138], fill=GOLD)
+    band = 190
+    f, lines, size = fit_headline(d, card["headline"], fonts["playfair"], W - 144, 420, 120, var="Bold", lh=1.08)
+    y = 190
+    for l in lines: d.text((72, y), l, font=f, fill=INKN); y += int(size * 1.08)
+    if card.get("sub"):
+        y += 40
+        sf, sl, ss = sub_fit(d, card["sub"], fonts["inter"], W - 144, H - band - 60 - y, 52, var="Regular", lh=1.35, floor=38)
+        for l in sl: d.text((72, y), l, font=sf, fill="#3A3833"); y += int(ss * 1.35)
+    d.rectangle([0, H - band, W, H], fill=INKN)
+    ff = font(fonts["inter"], 38, "Medium")
+    d.text((72, H - band // 2 - 24), card.get("tag", "Mobile notary · I come to you"), font=ff, fill=PAP)
+    t = "veronicamillernotary.com"; tf = font(fonts["inter"], 34, "Medium")
+    d.text((72, H - band // 2 + 30), t, font=tf, fill=GOLD)
+    _save(img, out, card["slug"])
+
+def wildmanners(card, fonts, out):
+    """Wild Manners Co. Cream, petrol teal, warm gray. Cormorant + Montserrat. No purple.
+    card: headline, sub, optional items [checklist] or phone {title, lines}."""
+    CREAM, TEAL, GRAY, DGRAY = "#F6F1E7", "#0F5470", "#6B655E", "#4A4540"
+    img = Image.new("RGB", (W, H), CREAM); d = ImageDraw.Draw(img)
+    d.text((72, 40), "Wild", font=font(fonts["greatvibes"], 96), fill=TEAL)
+    d.text((80, 150), "MANNERS CO.", font=font(fonts["montserrat"], 30, "Medium"), fill=GRAY)
+    phone = card.get("phone")
+    hw = W - 144 if not phone else 560
+    f, lines, size = fit_headline(d, card["headline"], fonts["cormorant"], hw, 400 if phone else 300, 112, var="SemiBold", lh=1.02)
+    y = 230
+    for l in lines: d.text((72, y), l, font=f, fill=TEAL); y += int(size * 1.02)
+    body = font(fonts["montserrat"], 46, "Medium")
+    if card.get("items"):
+        y += 40
+        for it in card["items"]:
+            d.rounded_rectangle([72, y + 6, 72 + 52, y + 58], 8, outline=TEAL, width=5)
+            d.line([84, y + 32, 96, y + 46], fill=TEAL, width=6); d.line([96, y + 46, 116, y + 18], fill=TEAL, width=6)
+            sf, sl, ss = sub_fit(d, it, fonts["montserrat"], W - 144 - 90, 120, 46, var="Medium", lh=1.25, floor=34)
+            yy = y
+            for l in sl: d.text((72 + 90, yy), l, font=sf, fill=DGRAY); yy += int(ss * 1.25)
+            y = max(y + 90, yy + 30)
+    if phone:
+        x0, y0, x1, y1 = W - 72 - 330, 220, W - 72, 860
+        d.rounded_rectangle([x0, y0, x1, y1], 46, fill="#FFFFFF", outline=DGRAY, width=8)
+        d.rounded_rectangle([x0 + 120, y0 + 22, x1 - 120, y0 + 38], 8, fill=DGRAY)
+        d.text((x0 + 34, y0 + 80), phone["title"], font=font(fonts["montserrat"], 36, "SemiBold"), fill=TEAL)
+        yy = y0 + 150
+        for ln in phone["lines"]:
+            d.rounded_rectangle([x0 + 30, yy, x1 - 30, yy + 90], 14, fill="#EAE3D6")
+            sf = font(fonts["montserrat"], 28, "Medium")
+            for i, part in enumerate(ln.split("\n")): d.text((x0 + 50, yy + 14 + i * 34), part, font=sf, fill=DGRAY)
+            yy += 112
+    if card.get("sub"):
+        y += 30
+        sw = (W - 144) if not phone else 560
+        sf, sl, ss = sub_fit(d, card["sub"], fonts["montserrat"], sw, H - 150 - y, 44, var="Medium", lh=1.35, floor=34)
+        for l in sl: d.text((72, y), l, font=sf, fill=DGRAY); y += int(ss * 1.35)
+    d.rectangle([0, H - 120, W, H], fill=TEAL)
+    ff = font(fonts["montserrat"], 36, "Medium")
+    d.text((72, H - 80), "Websites + marketing", font=ff, fill=CREAM)
+    t = "wildmannersco.com"; d.text((W - 72 - d.textlength(t, font=ff), H - 80), t, font=ff, fill=CREAM)
+    _save(img, out, card["slug"])
+
 FW_STYLES = {"bill": fw_bill, "split": fw_split, "amber": fw_amber, "myth": fw_myth, "vee": fw_vee}
 
 def howdy(card, fonts, logo, out):
@@ -227,11 +298,17 @@ if __name__ == "__main__":
     cards_path, out, fdir, pdir = sys.argv[1:5]
     os.makedirs(out, exist_ok=True)
     fonts = {"barlowc": f"{fdir}/BarlowCondensed-Bold.ttf.ttf", "barlow": f"{fdir}/Barlow-Medium.ttf.ttf",
-             "mono": f"{fdir}/IBMPlexMono-Medium.ttf.ttf", "bricolage": f"{fdir}/BricolageGrotesque.ttf", "dmsans": f"{fdir}/DMSans.ttf"}
+             "mono": f"{fdir}/IBMPlexMono-Medium.ttf.ttf", "bricolage": f"{fdir}/BricolageGrotesque.ttf", "dmsans": f"{fdir}/DMSans.ttf",
+             "playfair": f"{fdir}/PlayfairDisplay.ttf", "inter": f"{fdir}/Inter.ttf", "cormorant": f"{fdir}/CormorantGaramond.ttf",
+             "montserrat": f"{fdir}/Montserrat.ttf", "greatvibes": f"{fdir}/GreatVibes-Regular.ttf.ttf"}
     logo = os.path.join(HERE, "..", "howdy-move", "png", "howdymove-logo-horizontal-reverse.png")
     for c in json.load(open(cards_path)):
         if c["brand"] == "Feral Watt":
             FW_STYLES.get(c.get("style", "poster"), feral)(c, fonts, pdir, out)
+        elif c["brand"] == "Notary":
+            notary(c, fonts, out)
+        elif c["brand"] == "Wild Manners":
+            wildmanners(c, fonts, out)
         else:
             howdy(c, fonts, logo, out)
         print("made", c["slug"])

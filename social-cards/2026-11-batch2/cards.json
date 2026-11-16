@@ -1,0 +1,13 @@
+[
+ {"brand":"Feral Watt","style":"amber","slug":"fw-2026-11-16-read-your-bill","headline":"Want me to read your electric bill?","sub":"Homes and businesses. DM me a pic of it. That's your only job.","pose":"reading"},
+ {"brand":"Feral Watt","style":"poster","slug":"fw-2026-11-17-free-bill-review","headline":"Free electric bill review. Price: $0","sub":"Homes and businesses. DM me a pic of your bill.","pose":"approves"},
+ {"brand":"Feral Watt","style":"bill","slug":"fw-2026-11-18-contract-end-date","headline":"When does your contract end?","items":["It's printed on your bill","Check before the bill changes","DM me a pic, I'll find it"],"pose":"reading"},
+ {"brand":"Feral Watt","style":"split","slug":"fw-2026-11-19-when-contract-ends","headline":"When your contract ends","left":{"title":"Before","text":"Your fixed rate holds until the end date."},"right":{"title":"After","text":"A lot of plans roll onto a month-to-month rate."},"sub":"Set a reminder a month before it ends.","pose":"meh"},
+ {"brand":"Feral Watt","style":"poster","slug":"fw-2026-11-20-choose-your-provider","headline":"You can choose your electricity provider.","sub":"Most people don't know that. DM me a pic of your bill and I'll walk you through it.","pose":"hello"},
+ {"brand":"Feral Watt","style":"amber","slug":"fw-2026-11-23-contract-end-question","headline":"Do you know when your contract ends?","sub":"It's on your bill. DM me a pic and I'll find it.","pose":"napping"},
+ {"brand":"Feral Watt","style":"poster","slug":"fw-2026-11-25-explain-your-bill","headline":"Has anyone actually explained your electric bill?","sub":"Humble, Kingwood and Atascocita. Homes and businesses. DM me your latest bill.","pose":"reading"},
+ {"brand":"Notary","slug":"notary-2026-11-17-evenings","headline":"Need a notary after work? I come to you.","sub":"Evening and weekend appointments in Summerwood, Lake Houston, Humble, Kingwood and Atascocita.","tag":"Book online · I come to you"},
+ {"brand":"Notary","slug":"notary-2026-11-19-start-to-finish","headline":"On time, start to finish.","sub":"I bring the stamp, the journal and the pen. You bring a valid ID and your document, unsigned.","tag":"Mobile notary · Summerwood, Lake Houston, Humble"},
+ {"brand":"Wild Manners","slug":"wm-2026-11-17-holiday-hours","headline":"Are your holiday hours on Google?","sub":"It takes 2 minutes. Edit profile, Hours, add special hours.","phone":{"title":"Holiday hours","lines":["Thanksgiving\nHours added","Day after\nHours added","Edit profile\n> Hours"]}},
+ {"brand":"Wild Manners","slug":"wm-2026-11-20-search-you","headline":"What do people find when they search you?","items":["No website at all","A site that breaks on a phone","Old hours or no photos on Google"],"sub":"Every one is fixable."}
+]
