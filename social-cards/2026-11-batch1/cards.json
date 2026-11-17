@@ -1,11 +1,68 @@
 [
- {"brand":"Feral Watt","slug":"fw-2026-11-17-three-things","headline":"Read these 3. Ignore the rest.","sub":"Contract end date. Usage (kWh). Plan name.","pose":"reading"},
- {"brand":"Feral Watt","slug":"fw-2026-11-19-usage-or-rate","headline":"Usage or rate? Know which.","sub":"Cold snap bills, decoded.","pose":"meh"},
- {"brand":"Feral Watt","slug":"fw-2026-11-21-business-bill","headline":"Your business bill has a deadline.","sub":"Its own contract. Its own end date.","pose":"hello"},
- {"brand":"Feral Watt","slug":"fw-2026-11-24-contract-over","headline":"Contract over? Read this.","sub":"Month-to-month rates can change every month.","pose":"hissing"},
- {"brand":"Feral Watt","slug":"fw-2026-11-28-shop-small","headline":"Shop small. Read your bill.","sub":"Happy Small Business Saturday.","pose":"approves"},
- {"brand":"Howdy Move","slug":"hm-2026-11-17-howdy","headline":"New to Houston? We've got the setup.","sub":"Electricity, internet, water and trusted local pros. Free for movers."},
- {"brand":"Howdy Move","slug":"hm-2026-11-20-day-one","headline":"Day one checklist: lights, water, internet.","sub":"Tell us your address and move-in date at howdymove.com."},
- {"brand":"Howdy Move","slug":"hm-2026-11-24-holiday-move","headline":"Holiday move? Start here.","sub":"Book your hookups before the schedules fill up."},
- {"brand":"Howdy Move","slug":"hm-2026-11-28-local-pros","headline":"Who do I call? We've got you.","sub":"Trusted local pros for after the truck leaves."}
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-17-three-things",
+  "headline": "Read these 3. Ignore the rest.",
+  "sub": "Contract end date. Usage (kWh). Plan name.",
+  "pose": "reading"
+ },
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-19-usage-or-rate",
+  "headline": "Usage or rate? Know which.",
+  "sub": "Cold snap bills, decoded.",
+  "pose": "meh"
+ },
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-21-business-bill",
+  "headline": "Your business bill has a deadline.",
+  "sub": "Its own contract. Its own end date.",
+  "pose": "hello"
+ },
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-24-contract-over",
+  "headline": "Contract over? Read this.",
+  "sub": "Month-to-month rates can change every month.",
+  "pose": "hissing"
+ },
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-28-shop-small",
+  "headline": "Shop small. Read your bill.",
+  "sub": "Happy Small Business Saturday.",
+  "pose": "approves"
+ },
+ {
+  "brand": "Howdy Move",
+  "slug": "hm-2026-11-17-howdy",
+  "headline": "New to Houston? We've got the setup.",
+  "sub": "Electricity, internet, water and trusted local pros. Free for movers."
+ },
+ {
+  "brand": "Howdy Move",
+  "slug": "hm-2026-11-20-day-one",
+  "headline": "Day one checklist: lights, water, internet.",
+  "sub": "Tell us your address and move-in date at howdymove.com."
+ },
+ {
+  "brand": "Howdy Move",
+  "slug": "hm-2026-11-24-holiday-move",
+  "headline": "Holiday move? Start here.",
+  "sub": "Book your hookups before the schedules fill up."
+ },
+ {
+  "brand": "Howdy Move",
+  "slug": "hm-2026-11-28-local-pros",
+  "headline": "Who do I call? We've got you.",
+  "sub": "Trusted local pros for after the truck leaves."
+ },
+ {
+  "brand": "Feral Watt",
+  "slug": "fw-2026-11-24-myth-or-fact-switch",
+  "headline": "Myth or fact?",
+  "sub": "Switching electricity companies means someone has to come to your house.",
+  "pose": "meh"
+ }
 ]

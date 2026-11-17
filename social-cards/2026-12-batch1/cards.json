@@ -1,0 +1,8 @@
+[
+ {"brand":"Feral Watt","style":"poster","slug":"fw-2026-11-30-bill-credit","headline":"A bill credit that needs exactly 1,000 kWh?","sub":"Use 999 and it's gone. Static has notes. Ask me before you sign.","pose":"hissing"},
+ {"brand":"Feral Watt","style":"bill","slug":"fw-2026-12-02-who-gets-what","headline":"Who gets what on your bill.","items":["TDU delivery charges","Base charge","Energy charge"],"pose":"reading"},
+ {"brand":"Feral Watt","style":"split","slug":"fw-2026-12-04-kwh-vs-kw","headline":"Business bill: kWh or kW?","left":{"title":"kWh","text":"How much power you used all month."},"right":{"title":"kW","text":"Your highest 15-minute peak. Many business bills charge for it."},"sub":"Send me your business bill. I'll point to both.","pose":"approves"},
+ {"brand":"Feral Watt","style":"myth","slug":"fw-2026-12-07-myth-company-closes","statement":"If your electric company goes out of business, your lights go off.","pose":"meh"},
+ {"brand":"Feral Watt","style":"amber","slug":"fw-2026-12-09-cold-nights","headline":"Cold nights mean higher usage. That's normal.","sub":"If your rate changed too, that's a different story. Send me the bill.","pose":"napping"},
+ {"brand":"Feral Watt","style":"vee","slug":"fw-2026-12-11-meet-vee","headline":"Hi, I'm Vee. Static does the judging.","sub":"Lake Houston mom. I read electric bills so you don't have to."}
+]

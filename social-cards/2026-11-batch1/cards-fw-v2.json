@@ -1,0 +1,7 @@
+[
+ {"brand":"Feral Watt","style":"bill","slug":"fw-2026-11-17-three-things-v2","headline":"Read these 3. Ignore the rest.","items":["Contract end date","Usage (kWh)","Plan name"],"pose":"reading"},
+ {"brand":"Feral Watt","style":"split","slug":"fw-2026-11-19-usage-or-rate-v2","headline":"Bill went up? Which one moved?","left":{"title":"Usage","text":"Heater ran longer. kWh went up. Normal in a cold snap."},"right":{"title":"Rate","text":"Price per kWh changed. Your contract may have ended."},"sub":"Send me your bill. I'll tell you which.","pose":"meh"},
+ {"brand":"Feral Watt","style":"amber","slug":"fw-2026-11-21-business-bill-v2","headline":"Your business bill has its own end date.","sub":"Shops, salons, offices, warehouses. Know yours before the bill changes.","pose":"hello"},
+ {"brand":"Feral Watt","style":"myth","slug":"fw-2026-11-24-myth-or-fact-switch-v2","statement":"Switching electricity companies means someone has to come to your house.","pose":"meh"},
+ {"brand":"Feral Watt","style":"vee","slug":"fw-2026-11-28-shop-small-v2","headline":"Shop small. I am small too.","sub":"Happy Small Business Saturday, Humble, Kingwood and Atascocita."}
+]
